@@ -1,0 +1,92 @@
+QUESTÃO 01:
+
+Marque V ou F para as seguintes afirmativas sobre esse código em Haskell. Justifique ou corrija as falsas.
+
+(F) A função divideThree retorna um número inteiro. 
+(V) A variável c armazena o valor 3.0. 
+(V) A linha 10 irá imprimir o último valor da lista b, que é o inverso da listamappedFunction. 
+(F) A linha 9 irá imprimir uma lista inversa de a. 
+(V) A lista b possui os mesmos elementos que a lista mappedFunction, porém em ordeminversa. 
+
+Afirmativas jutisficadas:
+1- Como o nome diz, a função divide o número por 3, o que resulta em números de ponto flutuante (float).
+4- A linha 9 irá imprimir a lista b, que é o resultado inverso da lista mappedFunction. 
+
+QUESTÃO 02:
+
+%/ Fatos
+pessoa(joao).
+pessoa(maria).
+pessoa(jose).
+pessoa(ana).
+
+idade(joao, 30).
+idade(maria, 25).
+idade(jose, 40).
+idade(ana, 35).
+
+profissao(joao,engenheiro).
+profissao(maria,professora).
+profissao(jose,advogado).
+profissao(ana,medica).
+
+% Regras
+mais_velho(X,Y) :- idade(X, IdadeX), idade(Y, IdadeY), IdadeX > IdadeY
+
+A partir desse código, qual seria o resultado, ou o que indicam, em relação asseguintes consultas:
+
+1) pessoa(joao).
+Resultado: Verdadeiro. (joao é uma pessoa)
+
+2) idade(maria, Idade).
+Resultado: Idade = 25. (a idade da maria é 25)
+
+3) profissao(X, engenheiro).
+Resultado: X = joao. (joao é engenheiro)
+
+4) mais_velho(joao, maria).
+Resultado: Verdadeiro.  (joao é mais velho que maria)
+
+Qual dessas regras seria possível para que todos com pelo menos 70 anos fossem considerados aposentados:
+
+1) profissao(X, aposentado) :- idade(X,Y), Y>=70.
+2) profissao(X, Y) :- idade(X,Z), Z>=70, Y=aposentado. 
+3) idade(X,Y) :- profissao(X, aposentado), Y >= 70.
+
+Resposta: a 1 é a única correta. 
+
+QUESTÃO 03:
+
+Código no GITHUB - Haskhell:
+
+squareAndAdd :: [Int] -> [Int]
+
+squareAndAdd xs = reverse (map (\x -> (x + 2)^2) xs)
+-- Aplica a função que a cada elemento da lista, eleva o resultado ao quadrado, inverte a lista e retorna o resultado
+
+main :: IO ()
+main = do
+  
+  let numbers = [1..30]
+  -- Criando lista de números de 1 a 30 e atribui à numbers
+  
+  let modifiedList = squareAndAdd numbers -- recebendo resultado da função e atribui à modifiedList
+  
+  putStrLn $ "Primeiro elemento da lista modificada: " ++ show (head modifiedList)
+  -- Imprime o primeiro elemento da lista convertido para String
+
+QUESTÃO 04:
+
+COMANDOS PARA O BANCO DE DADOS "MOVIES" - PROLOG:
+
+a) Mostre todos os filmes lançados entre 1996 e 2006:
+movie(M, Y), Y >= 1996, Y =< 2006.
+
+b) Mostre todos os filmes que lançaram depois de 1999:
+movie(M, Y), Y > 1999.
+
+c) Procure o ano que o filme “hail_caesar” foi lançado:
+movie(hail_caesar, Y).
+
+d) Mostre todos os filmes que o diretor “stephen_hillenburg” participou:
+director(M, stephen_hillenburg).
